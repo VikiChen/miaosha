@@ -142,7 +142,7 @@ public class RedisService {
             jedis =  jedisPool.getResource();
             //生成真正的key
             String realKey  = prefix.getPrefix() + key;
-            long ret=jedis.del(key);
+            long ret=jedis.del(realKey);
             return ret>0;
         }finally {
             returnToPool(jedis);
